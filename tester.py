@@ -50,19 +50,19 @@ class SimpleUnitTester():
     def add_new_case(self, args_=[],kwargs={},expected_return=None,iteration=1):
         self.cases_.append(TestCase(func=self.func, args_=args_, kwargs=kwargs, expected_return=expected_return, iteration=iteration))
     
-    def add_new_cases(self, formated_cases_):
-        for formated_case in formated_cases_:
+    def add_new_cases(self, formatted_cases_):
+        for formatted_case in formatted_cases_:
             args_=()
             kwargs={}
-            expected_return=formated_case[-1]
-            if len(formated_case)==3:
-                args_=formated_case[0]
-                kwargs=formated_case[1]
+            expected_return=formatted_case[-1]
+            if len(formatted_case)==3:
+                args_=formatted_case[0]
+                kwargs=formatted_case[1]
             else:
-                if isinstance(formated_case[0], tuple):
-                    args_=formated_case[0]
+                if isinstance(formatted_case[0], tuple):
+                    args_=formatted_case[0]
                 else:
-                    kwargs=formated_case[0]
+                    kwargs=formatted_case[0]
             self.cases_.append(TestCase(func=self.func, args_=args_, kwargs=kwargs, expected_return=expected_return, iteration=1))
     
     def run_test(self):
